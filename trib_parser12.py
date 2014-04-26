@@ -5,7 +5,7 @@ Created on Thu Apr 24 14:22:47 2014
 @author: Kyle Grage
 """
 
-from tribparser import parse_case
+from trib_parser import parse_case
 
 def parse_tribunal(error_file):
     """
