@@ -19,8 +19,9 @@ def parse_tribunal(error_file):
     base_url = "http://na.leagueoflegends.com/tribunal/en/case/"
     post_url = "/#nogo"
     
-    #range from 5555631 to 6787078
-    for case in range(5555631, 6787079):
+    #range from 5555631 to 6790508
+    #for case in random.sample(xrange(min, max), amount)
+    for case in range(5555631, 6790509):
         final_url = base_url + str(case) + post_url
         parse_case(final_url, case, error_file)
         
@@ -137,4 +138,55 @@ def write_error(error_file, error_string):
     
 #Main method
 if __name__ == "__main__":
+    #TODO: make min/max and full/random interface
+
     parse_tribunal('Resources/ErrorURL.txt')
+    
+    
+    
+"""
+THREAD SOLN 1:
+
+import urllib, threading
+from Queue import Queue
+ 
+class FileGetter(threading.Thread):
+    def __init__(self, url):
+        self.url = url
+        self.result = None
+        threading.Thread.__init__(self)
+ 
+    def get_result(self):
+        return self.result
+ 
+    def run(self):
+        try:
+            f = urllib.urlopen(url)
+            contents = f.read()
+            f.close()
+            self.result = contents
+         except IOError:
+            print "Could not open document: %s" % url
+ 
+def get_files(files):
+    def producer(q, files):
+        for file in files:
+            thread = FileGetter(file)
+            thread.start()
+            q.put(thread, True)
+ 
+    finished = []
+    def consumer(q, total_files):
+        while len(finished) &lt; total_files:
+            thread = q.get(True)
+            thread.join()
+            finished.append(thread.get_result())
+ 
+    q = Queue(3)
+    prod_thread = threading.Thread(target=producer, args=(q, files))
+    cons_thread = threading.Thread(target=consumer, args=(q, len(files))
+    prod_thread.start()
+    cons_thread.start()
+    prod_thread.join()
+    cons_thread.join()
+"""
