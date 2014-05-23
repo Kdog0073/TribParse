@@ -6,12 +6,18 @@ Created on Thu Apr 24 14:22:47 2014
 """
 
 from selenium import webdriver
+import random
 
-def parse_tribunal(error_file):
+MIN_CASE_NUMBER = 5555631
+MAX_CASE_NUMBER = 6790508
+UPDATED_DATE = "05/21/2014"
+
+def parse_tribunal(sample_min, sample_max, sample_size):
     """
     Parses all tribunal cases
     """
     #initialize error file
+    error_file = 'Resources/ErrorURL.txt'
     e_file = open(error_file, 'w')
     e_file.write("ERRORS:\n")
     e_file.close()
@@ -19,9 +25,7 @@ def parse_tribunal(error_file):
     base_url = "http://na.leagueoflegends.com/tribunal/en/case/"
     post_url = "/#nogo"
     
-    #range from 5555631 to 6790508
-    #for case in random.sample(xrange(min, max), amount)
-    for case in range(5555631, 6790509):
+    for case in random.sample(xrange(sample_min, sample_max+1), sample_size):
         final_url = base_url + str(case) + post_url
         parse_case(final_url, case, error_file)
         
@@ -136,11 +140,106 @@ def write_error(error_file, error_string):
     e_file.write(error_string)
     e_file.close
     
+    
+def min_interface():
+    """
+    Gets and sanatizes a user's minimum case number input
+    @return sample_min, the minimum case number
+    """
+    valid_input = False
+    sample_min = MIN_CASE_NUMBER
+    while valid_input == False:
+        input_min = raw_input("Enter Minimum Case Number:")
+        if input_min.isdigit() and int(input_min) >= MIN_CASE_NUMBER:
+            sample_min = int(input_min)
+            valid_input = True
+        else:
+            print "Input invalid, use default (" + str(sample_min) + ")?"
+            err_opt = raw_input("Press y then enter for yes, otherwise press n then enter for no:")
+            if err_opt == 'y':
+                valid_input = True
+    return sample_min
+    
+    
+def max_interface():
+    """
+    Gets and sanatizes a user's maximum case number input
+    @return sample_min, the maximum case number
+    """
+    valid_input = False
+    sample_max = MAX_CASE_NUMBER
+    while valid_input == False:
+        input_max = raw_input("Enter Maximum Case Number:")
+        if input_max.isdigit() and int(input_max) <= (MAX_CASE_NUMBER + 100000):
+            sample_max = int(input_max)
+            valid_input = True
+        else:
+            print "Input invalid, use default (" + str(sample_max) + ")?"
+            err_opt = raw_input("Press y then enter for yes, otherwise press n then enter for no:")
+            if err_opt == 'y':
+                valid_input = True
+    return sample_max
+    
+    
+def size_interface(sample_min, sample_max):
+    """
+    Gets and sanatizes a user's random sample size
+    @return sample_amount, the random sample size
+    """
+    valid_input = False
+    sample_amount = sample_max - sample_min + 1
+    print "Your full sample size is " + str(sample_amount)
+    while valid_input == False:
+        input_amount = raw_input("Enter Sample Size:")
+        if input_amount.isdigit() and int(input_amount) <= (sample_max - sample_min + 1) and int(input_amount) > 0:
+            sample_amount = int(input_amount)
+            valid_input = True
+        else:
+            print "Input invalid, use default (" + str(sample_amount) + ")?"
+            err_opt = raw_input("Press y then enter for yes, otherwise press n then enter for no:")
+            if err_opt == 'y':
+                valid_input = True
+    return sample_amount
+    
+    
 #Main method
 if __name__ == "__main__":
-    #TODO: make min/max and full/random interface
-
-    parse_tribunal('Resources/ErrorURL.txt')
+    #TODO: parallel
+    main_flag = False
+    while main_flag == False:
+        print "Tribunal Case Info (Updated " + str(UPDATED_DATE) + "):\nMin: " + str(MIN_CASE_NUMBER) + " | Max: " + str(MAX_CASE_NUMBER) + "\n"
+    
+        sample_min = min_interface()
+        sample_max = max_interface()
+    
+        if sample_min >= sample_max:
+            print "ERROR: minimum case number is larget than the maximum\n\nRestarting\n\n"
+            continue
+        
+        sample_amount = size_interface(sample_min, sample_max)
+        
+        print "\n\nVerification:"
+        print "Minimum Case Number: " + str(sample_min)
+        print "Minimum Case Number: " + str(sample_max)
+        print "Random Sample Size:  " + str(sample_amount)
+        print "\n"
+        print "Is this information correct?"
+        verify_opt = raw_input("Press y then enter for yes, press n then enter for no\n or press any other key then enter to exit:")
+        if verify_opt == 'y':
+                parse_tribunal(sample_min, sample_max, sample_amount)
+                print "Parsing completed successfully!"
+                print "\n"
+                print "Do you want to parse another sample?"
+                reset_opt = raw_input("Press y then enter for yes or press any other key then enter to exit:")
+                if reset_opt == 'y':
+                    continue
+                else:
+                    main_flag = True
+        elif verify_opt == 'n':
+            continue
+        else:
+            main_flag = True
+        
     
     
     
