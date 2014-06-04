@@ -1,0 +1,42 @@
+[AB_Cache_{7929B776-976F-4872-9B97-9F080D841C2A}]
+Cache_ProjSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_TargetSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_MyCompChksum[String] = "fbd0c0980d3d9dbb063e09f93950bc11"
+Cache_GenFile_Count[Integer] = 3
+Cache_GenFile[0][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[0][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.e"
+Cache_GenFile[0][Path] Line0003 = "xe"
+Cache_GenFile[1][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[1][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.a"
+Cache_GenFile[1][Path] Line0003 = "liases"
+Cache_GenFile[2][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[2][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.i"
+Cache_GenFile[2][Path] Line0003 = "ni"
+Cache_GenGUID_Count[Integer] = 3
+Cache_GenGUID[0][String] = "{05BC511C-05F4-4884-9BB3-C89FCF46EE57}"
+Cache_GenGUID[1][String] = "{A1DB1FEF-D09A-4380-9A4B-A6A06481BAB5}"
+Cache_GenGUID[2][String] = "{790C990A-74D6-497B-ABEB-AD76B5D835AD}"
+Cache_OutputDir[Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/LoL"
+Cache_OutputDir[Path] Line0002 = " Chat Front/LoL Chat Front"
+
+[AB_Cache_{1E812221-BA14-4576-BEEE-63FDA4D52626}]
+Cache_ProjSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_TargetSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_MyCompChksum[String] = "fbd0c0980d3d9dbb063e09f93950bc11"
+Cache_GenFile_Count[Integer] = 3
+Cache_GenFile[0][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[0][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.e"
+Cache_GenFile[0][Path] Line0003 = "xe"
+Cache_GenFile[1][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[1][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.a"
+Cache_GenFile[1][Path] Line0003 = "liases"
+Cache_GenFile[2][Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/Lo"
+Cache_GenFile[2][Path] Line0002 = "L Chat Front/LoL Chat Front/LoL Chat Front.i"
+Cache_GenFile[2][Path] Line0003 = "ni"
+Cache_GenGUID_Count[Integer] = 3
+Cache_GenGUID[0][String] = "{05BC511C-05F4-4884-9BB3-C89FCF46EE57}"
+Cache_GenGUID[1][String] = "{A1DB1FEF-D09A-4380-9A4B-A6A06481BAB5}"
+Cache_GenGUID[2][String] = "{790C990A-74D6-497B-ABEB-AD76B5D835AD}"
+Cache_OutputDir[Path] Line0001 = "/C/Users/Fernando/Documents/GitHub/builds/LoL"
+Cache_OutputDir[Path] Line0002 = " Chat Front/LoL Chat Front"
+
